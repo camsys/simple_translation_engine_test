@@ -1,0 +1,32 @@
+.col-md-1
+.col-md-10
+  .row
+    .col-md-4
+    .col-md-4 
+      %h1.text-center
+        Translations
+    .col-md-4.text-right
+      = link_to simple_translation_engine.new_translation_path do
+        Add Key
+  .row
+    %table.table
+      %tr
+        %th= I18n.t(:key)
+        - @locales.each do |locale|
+          %th= locale.name
+        %th.text-center
+          = I18n.t(:delete)
+      - @translation_keys.each do |translation_key|
+        %tr
+          %td= translation_key.name
+          - @locales.each do |locale|
+            %td
+              - current_translation = translation_key.translation(locale)
+              - if current_translation and not current_translation.value.blank?
+                = link_to current_translation.value.truncate(50), simple_translation_engine.edit_translation_path(current_translation.id)
+              - else
+                - path = (current_translation && current_translation.value.blank?) ? simple_translation_engine.edit_translation_path(current_translation.id) : simple_translation_engine.new_translation_path(key: translation_key.name, key_locale: locale.name.to_s)
+                = link_to I18n.t(:add), path
+          %td.text-center
+            =button_to 'Delete', simple_translation_engine.translation_key_path(translation_key), {method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Are you sure?  This action cannot be undone!"}}
+            

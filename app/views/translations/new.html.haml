@@ -1,0 +1,33 @@
+%h1.text-center
+  Add Translation
+
+.row
+  .col-md-3
+  .col-md-6
+    .panel.panel-primary
+      .panel-heading
+        %h4
+          =@key.blank? ? "New Key" : @key
+      .panel-body
+        #translations_form
+          .row
+            .col-sm-12
+              = simple_form_for @translation, url: simple_translation_engine.translations_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |t|
+                -if @key.blank?
+                  = t.input :key, :input_html => { :value => @key}
+                -else 
+                  = t.input :key, as: :hidden, :input_html => { :value => @key}
+                - selected_locale_name = @translation.locale.name rescue selected_locale_name = "en"
+                = t.input :locale, collection: I18n.available_locales, include_blank: false, :selected => selected_locale_name
+                = t.input :value, input_html: {rows: 10}
+
+      .panel-footer.panel-primary
+        %center 
+          = button_tag id:'create_translation', type: 'submit', class: "btn action-button btn-primary" do
+            = I18n.t(:save)
+
+
+:javascript
+  $('#create_translation').on('click', function(){
+    $('#translations_form form').submit();
+  });
