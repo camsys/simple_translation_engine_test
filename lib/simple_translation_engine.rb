@@ -32,8 +32,8 @@ module SimpleTranslationEngine
     unless locale
       return false
     end 
-    key = TranslationKey.find_or_create!(name: key_param)
-    translation = Translation.find_or_create!(locale: locale, translation_key: key)
+    key = TranslationKey.first_or_create!(name: key_param)
+    translation = Translation.first_or_create!(locale: locale, translation_key: key)
     translation.value = value
     return translation.save 
   end
