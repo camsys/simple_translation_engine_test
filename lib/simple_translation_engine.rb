@@ -26,5 +26,9 @@ module SimpleTranslationEngine
     translation = Translation.find_by(locale: locale, translation_key: key)
     return translation.nil? ? 'missing translation #{locale.name}:#{key.name}' : translation.value 
   end
+
+  def self.set_translation(locale_param, key_param, value)
+    return 'ok got it #{locale_param} #{key_param} #{value}'
+  end
   
 end
