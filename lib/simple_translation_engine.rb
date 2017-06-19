@@ -28,7 +28,14 @@ module SimpleTranslationEngine
   end
 
   def self.set_translation(locale_param, key_param, value)
-    return 'ok got it #{locale_param} #{key_param} #{value}'
+    locale = Locale.find_by(name: locale_param)
+    unless locale
+      return false
+    end 
+    key = TranslationKey.find_or_create!(name: key_param)
+    translation = Translation.find_or_create!(locale: locale, translation_key: key)
+    translation.value = value
+    return translation.save 
   end
   
 end
