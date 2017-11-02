@@ -44,25 +44,25 @@ class TranslationsController < ApplicationController
     end
 
     def update
-        @translation = Translation.find_by_id params[:id]
+      @translation = Translation.find_by_id params[:id]
 
-        @translation.value = trans_params["value"]
+      @translation.value = trans_params["value"]
 
-        Rails.logger.info "Saving translation.  Params = "
-        Rails.logger.info params
+      Rails.logger.info "Saving translation.  Params = "
+      Rails.logger.info params
 
-        if @translation.save
-            flash[:success] = "Translation Successfully Updated"
-            redirect_to simple_translation_engine.translations_path
-        else
-            begin
-                @translation.save!
-            rescue Exception => e
-                Rails.logger.info "Exception saving translation"
-                Rails.logger.info e 
-            end
-            render 'edit'
+      if @translation.save
+        flash[:success] = "Translation Successfully Updated"
+        redirect_to simple_translation_engine.translations_path
+      else
+        begin
+          @translation.save!
+        rescue Exception => e
+          Rails.logger.info "Exception saving translation"
+          Rails.logger.info e 
         end
+        render 'edit'
+      end
     end
 
     def destroy
@@ -73,11 +73,28 @@ class TranslationsController < ApplicationController
         flash[:success] = "Translation Removed"
         redirect_to simple_translation_engine.translations_path
     end
+    
+    def upload_locale
+      @locale = upload_locale_params[:locale]
+      @file = upload_locale_params[:file]
+      if LocaleUploader.new(@locale, @file)
+                       .build_translations
+        flash[:success] = "All locale #{@locale.upcase} translations successfully uploaded."
+        redirect_to simple_translation_engine.translations_path
+      else
+        flash[:alert] = "Error creating some translations for locale #{@locale.upcase}."
+        redirect_to simple_translation_engine.translations_path
+      end
+    end
 
     private
 
-        def trans_params
-            params.require(:translation).permit(:key, :locale, :value)
-        end
+    def trans_params
+      params.require(:translation).permit(:key, :locale, :value)
+    end
+    
+    def upload_locale_params
+      params.require(:upload_locale).permit(:locale, :file)
+    end
 
 end

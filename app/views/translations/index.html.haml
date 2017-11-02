@@ -2,11 +2,6 @@
 .col-md-10
   .row
     .col-md-4
-      -# =simple_form_for :locale,
-      -#   url: admin_cities_path,
-      -#   html: {class: 'form-horizontal', multipart: true, method: :post },
-      -#   authenticity_token: true do |f|
-      -#   = f.input "file", required:true, label: "Upload Shapefile", :as => :file  
     .col-md-4 
       %h1.text-center
         Translations
@@ -33,3 +28,13 @@
                 = link_to "Add", path
           %td.text-center
             =button_to 'Delete', simple_translation_engine.translation_key_path(translation_key), {method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Are you sure?  This action cannot be undone!"}}          
+  .row
+    .col-md-12.text-center
+      -I18n.available_locales.each do |loc|
+        =simple_form_for :upload_locale,
+          url: simple_translation_engine.upload_locale_translations_path,
+          html: {class: 'form-horizontal', multipart: true, method: :post },
+          authenticity_token: true do |f|
+          =f.input "file", required:true, label: "Upload Locale #{loc}", :as => :file
+          =f.input "locale", as: :hidden, input_html: {value: loc}
+          =f.submit
