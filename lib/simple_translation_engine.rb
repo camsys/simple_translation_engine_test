@@ -1,4 +1,6 @@
 require "simple_translation_engine/version"
+require 'pg'
+require 'simple_form'
 
 #refactor these includes at some point, if possible
 #require 'tasks/database_tasks'

@@ -12,7 +12,10 @@
         #translations_form
           .row
             .col-sm-12
-              = simple_form_for @translation, url: simple_translation_engine.translations_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |t|
+              = simple_form_for @translation, 
+                url: simple_translation_engine.translations_path, 
+                html: { class: 'form-horizontal' }, 
+                wrapper: :horizontal_form do |t|
                 -if @key.blank?
                   = t.input :key, :input_html => { :value => @key}
                 -else 
