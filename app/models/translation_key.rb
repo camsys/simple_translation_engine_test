@@ -8,8 +8,15 @@ class TranslationKey < ActiveRecord::Base
   self.primary_key = :id 
   validates :name, length: { maximum: 255 }
 
-  def translation locale
-    self.translations.find_by(locale: locale)
+  def translation(locale)
+    self.translations.find_by(locale: Locale.of(locale)) # Locale.of converts the param from a string/symbol to Locale if necessary
+  end
+  
+  # Builds a hash of all translation keys and values for the given locale
+  def self.locale_hash(locale)
+    self.all.map do |tkey|
+      [ tkey.name, tkey.translation(Locale.of(locale)).try(:value) ]
+    end.to_h
   end
 
 end

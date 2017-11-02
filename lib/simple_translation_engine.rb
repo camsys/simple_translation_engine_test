@@ -40,4 +40,21 @@ module SimpleTranslationEngine
     return translation.save 
   end
   
+  # Expose a Configuration object to including application
+  class Configuration
+    attr_accessor :configurable_service
+  end
+  class << self
+    attr_writer :configuration
+  end
+
+  module_function
+  def configuration
+    @configuration ||= Configuration.new
+  end
+
+  def configure
+    yield(configuration)
+  end
+  
 end
