@@ -37,7 +37,7 @@
         .col-sm-4.text-center
           .panel.panel-primary
             .panel-heading
-              %h4="Upload Locale #{loc}"
+              %h4="Load Locale #{loc.to_s.upcase} from File"
             .panel-body
               =f.input "file", required:true, label: false, :as => :file
               =f.input "locale", as: :hidden, input_html: {value: loc}
