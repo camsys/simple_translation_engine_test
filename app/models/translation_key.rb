@@ -1,9 +1,17 @@
 class TranslationKey < ActiveRecord::Base
 
   has_many :translations, :dependent => :delete_all
-
-  scope :hidden,  -> { where("name like ?", "REFERNET_%") } #Filter out REFERNET Translations
-  scope :not_hidden, -> { where.not(id: hidden) }
+    
+  scope :visible, -> { 
+    where(id: visible_include)
+    .where.not(id: visible_exclude)
+  }
+  scope :unhidden, -> { where(id: visible) } # unhidden is an alias for visible
+  scope :hidden, -> { where.not(id: visible)} # hidden is just all the keys not set to visible 
+  
+  # Create some helper scopes from the configured visible and hidden key scopes
+  scope :visible_include, SimpleTranslationEngine.configuration.visible_key_scope
+  scope :visible_exclude, SimpleTranslationEngine.configuration.hidden_key_scope
 
   self.primary_key = :id 
   validates :name, length: { maximum: 255 }

@@ -2,7 +2,7 @@ class TranslationsController < ApplicationController
 
     def index
         @locales = Locale.where(name: I18n.available_locales.sort)
-        @translation_keys = TranslationKey.not_hidden.order(:name)
+        @translation_keys = TranslationKey.visible.order(:name)
     end
 
     def new

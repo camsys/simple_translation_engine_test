@@ -13126,3 +13126,100 @@ Completed 200 OK in 292ms (Views: 238.7ms | ActiveRecord: 50.2ms)
   [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE (name like 'REFERNET_%')[0m
   [1m[36mTranslationKey Load (0.5ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name like 'REFERNET_%')))[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name like 'REFERNET_%')))[0m
+  [1m[36mTranslationKey Load (0.5ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys"[0m
+  [1m[36mTranslationKey Load (0.3ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" IN (1, 2, 3)[0m
+  [1m[36mTranslationKey Load (0.3ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" IN (1, 2, 3)[0m
+  [1m[36mTranslationKey Load (0.9ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys" WHERE (name LIKE 'pages%' OR name LIKE 'global%')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE (name LIKE 'pages%' OR name LIKE 'global%')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE (name LIKE 'pages%')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE (name LIKE 'global%')[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" = $1 AND ("translation_keys"."id" != $2)))[0m  [["id", nil], ["id", nil]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" = $1 AND ("translation_keys"."id" != $2)[0m  [["id", nil], ["id", nil]]
+  [1m[36mTranslationKey Load (0.2ms)[0m  [1m[34mSELECT "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1[0m  [["id", nil]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" = $1[0m  [["id", nil]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys")[0m
+Creating scope :visible. Overwriting existing method TranslationKey.visible.
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (1=0)))[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (1=0)))))[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (1=0)))))[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (1=0)))[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (1, 2, 3, 4, 5)))[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (1, 2, 3, 4, 5)))))[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))))[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys") AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'global.%' OR name LIKE 'pages.%')) AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "translation_keys"."name" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'global.%' OR name LIKE 'pages.%')) AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "translation_keys"."name" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'global.%' OR name LIKE 'pages.%')) AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))[0m
+  [1m[35m (14.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'global.%' OR name LIKE 'pages.%')) AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%')))[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE "translation_keys"."id" IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'global.%' OR name LIKE 'pages.%')) AND ("translation_keys"."id" NOT IN (SELECT "translation_keys"."id" FROM "translation_keys" WHERE (name LIKE 'REFERNET%'))))[0m
+  [1m[36mTranslation Load (19.1ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.5ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (6.8ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.2ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.5ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.4ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.3ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.2ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35mSQL (4.3ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "bloop"], ["updated_at", "2017-11-03 13:17:23.153872"], ["id", 178]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.3ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.1ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.1ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "blorp"], ["updated_at", "2017-11-03 13:17:57.793372"], ["id", 178]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "floop"], ["updated_at", "2017-11-03 13:19:18.632761"], ["id", 178]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.2ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.2ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.1ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "florp"], ["updated_at", "2017-11-03 13:21:16.641683"], ["id", 178]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.3ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.3ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.3ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.3ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.2ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "flomp"], ["updated_at", "2017-11-03 13:22:02.820658"], ["id", 178]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.1ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.1ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.2ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "glorp"], ["updated_at", "2017-11-03 13:22:41.378363"], ["id", 178]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.1ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.1ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.1ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "glomp"], ["updated_at", "2017-11-03 13:23:24.670957"], ["id", 178]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTranslation Load (0.1ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.3ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTranslation Load (0.1ms)[0m  [1m[34mSELECT  "translations".* FROM "translations" ORDER BY "translations"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocale Load (0.1ms)[0m  [1m[34mSELECT  "locales".* FROM "locales" WHERE "locales"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTranslationKey Load (0.1ms)[0m  [1m[34mSELECT  "translation_keys".* FROM "translation_keys" WHERE "translation_keys"."id" = $1 LIMIT $2[0m  [["id", 96], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "translations" SET "value" = $1, "updated_at" = $2 WHERE "translations"."id" = $3[0m  [["value", "fnorp"], ["updated_at", "2017-11-03 13:28:56.627588"], ["id", 178]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m

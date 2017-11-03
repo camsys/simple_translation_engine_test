@@ -40,15 +40,39 @@ module SimpleTranslationEngine
     return translation.save 
   end
   
+  
+  ### CONFIGURATION ###
   # Expose a Configuration object to including application
+  # see http://ndlib.github.io/practices/exposing-configuration-options-in-rails-engines/
+  
+  # This describes the Configuration object that will be passed to the parent app.
   class Configuration
-    attr_accessor :configurable_service
+    attr_accessor :visible_key_scope, :hidden_key_scope
+    
+    def initialize
+      @visible_key_scope = default_visible_key_scope
+      @hidden_key_scope = default_hidden_key_scope
+    end
+    
+    private
+    
+    # By default, all translation keys are visible
+    def default_visible_key_scope
+      lambda { all }
+    end
+    
+    # By default, no translation keys are hidden
+    def default_hidden_key_scope
+      lambda { none }
+    end
   end
+  
   class << self
     attr_writer :configuration
   end
 
   module_function
+  
   def configuration
     @configuration ||= Configuration.new
   end
