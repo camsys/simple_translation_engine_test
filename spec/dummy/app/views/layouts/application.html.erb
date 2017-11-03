@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dummy</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="flash-display">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-<%=map_alert(type)%> fadeout" data-dismiss="alert">
+          <button class: "close">&times;</button>
+          <%= msg if msg.is_a?(String) %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>
