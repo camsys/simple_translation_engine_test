@@ -34,7 +34,7 @@
         url: simple_translation_engine.upload_locale_translations_path,
         html: {class: 'form-horizontal', multipart: true, method: :post },
         authenticity_token: true do |f|
-        .col-sm-4.text-center
+        .col-sm-6.text-center
           .panel.panel-primary
             .panel-heading
               %h4="Load Locale #{loc.to_s.upcase} from File"
