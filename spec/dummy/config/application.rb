@@ -12,4 +12,7 @@ module Dummy
     # -- all .rb files in that directory are automatically loaded.
     
     config.i18n.available_locales = [:en, :es, :fr, :hi, 'zh-CN'] # english, spanish, french, hindi, mandarin chinese
+    # config.i18n.available_locales = %i[en es ht pt vi]
+    
+  end
 end
