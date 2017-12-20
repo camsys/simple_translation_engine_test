@@ -11,6 +11,5 @@ module Dummy
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     
-    config.i18n.available_locales = [:en, :es, :fr]
-  end
+    config.i18n.available_locales = [:en, :es, :fr, :hi, 'zh-CN'] # english, spanish, french, hindi, mandarin chinese
 end

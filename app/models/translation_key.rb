@@ -12,6 +12,15 @@ class TranslationKey < ActiveRecord::Base
   # Create some helper scopes from the configured visible and hidden key scopes
   scope :visible_include, SimpleTranslationEngine.configuration.visible_key_scope
   scope :visible_exclude, SimpleTranslationEngine.configuration.hidden_key_scope
+  
+  # Scope for keys translated into a given language
+  scope :translated_into, -> (lang) do 
+    locale = Locale.of(lang)
+    where(id: locale.present? ? locale.translations.pluck(:translation_key_id) : [])
+  end
+
+  # Scope for keys NOT translated into a given language
+  scope :not_translated_into, -> (lang) { where.not(id: translated_into(lang).pluck(:id)) }
 
   self.primary_key = :id 
   validates :name, length: { maximum: 255 }

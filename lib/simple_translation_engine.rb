@@ -6,6 +6,7 @@ require 'simple_form'
 #require 'tasks/database_tasks'
 require 'tasks/install'
 require 'tasks/load'
+require 'tasks/translate'
 
 module SimpleTranslationEngine
 
@@ -16,7 +17,7 @@ module SimpleTranslationEngine
   end
 
   def self.translate(locale_param, key_param, options={})
-    locale = Locale.find_by(name: locale_param)
+    locale = Locale.of(locale_param)
     unless locale
       return "missing locale #{locale_param}"
     end
@@ -30,7 +31,7 @@ module SimpleTranslationEngine
   end
 
   def self.set_translation(locale_param, key_param, value)
-    locale = Locale.find_by(name: locale_param)
+    locale = Locale.of(locale_param)
     unless locale
       return false
     end 
