@@ -30,15 +30,26 @@ class GoogleTranslator
     return self
   end
 
-  # Translates the given query q from the source language to the target language
+  # Translates the given string q from the source language to the target language
   def translate q, target=@target_lang, source=@source_lang
-  	params = {
+    
+    # Pull out any interpolate variables contained in braces {}, and save them
+    interpolated_vars = []
+    q = q.gsub(/{[^{}]*?}/) do |var|
+      interpolated_vars << var
+      next "{}"
+    end
+    
+    # Build a google translate API params hash
+    params = {
 	    "q": q,
 	    "source": source,
 	    "target": target,
       "format": "text"
     }
-    self.send(params)
+    
+    # Get the translation from the google API, and re-insert the interpolated variables
+    self.send(params).gsub(/{[^{}]*?}/) { |var| interpolated_vars.shift }
   end
   
  	## Send the Requests
