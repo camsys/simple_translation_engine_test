@@ -35,7 +35,7 @@ class GoogleTranslator
     
     # Pull out any interpolate variables contained in braces {}, and save them
     interpolated_vars = []
-    q = q.gsub(/{[^{}]*?}/) do |var|
+    q = q.to_s.gsub(/{[^{}]*?}/) do |var|
       interpolated_vars << var
       next "{}"
     end

@@ -42,7 +42,7 @@ namespace :simple_translation_engine do
     keys_to_translate = keys_to_translate.not_translated_into(@target_lang) unless (@overwrite)
 
     translation_count = keys_to_translate.each do |tkey|
-      source_translation = SimpleTranslationEngine.translate(@source_locale, tkey.name)
+      source_translation = SimpleTranslationEngine.translate(@source_locale, tkey.name).to_s
       target_translation = @translator.translate(source_translation)
       SimpleTranslationEngine.set_translation(@target_locale, tkey.name, target_translation)
       puts "Translated '#{source_translation}' as '#{target_translation}'"
