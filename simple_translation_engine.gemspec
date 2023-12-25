@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rails", "~>5.0"
+  s.add_dependency "rails", ">= 5.0.3", "< 7"
   spec.add_dependency "sass-rails"
   spec.add_dependency "pg"
   spec.add_dependency "simple_form"
